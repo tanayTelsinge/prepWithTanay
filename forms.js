@@ -15,6 +15,15 @@ function val(id) {
   return el && el.value.trim() ? el.value.trim() : 'Not provided';
 }
 
+function isPaid(checkboxId) {
+  const el = document.getElementById(checkboxId);
+  if (!el || !el.checked) {
+    alert('Please confirm you have completed the payment before submitting.');
+    return false;
+  }
+  return true;
+}
+
 // ===== TAB NAVIGATION =====
 function showTab(name) {
   document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
@@ -27,10 +36,11 @@ function showTab(name) {
 function submitResume() {
   const service = getRadioValue('resumeService');
   if (service === 'Not selected') { alert('Please select a service.'); return; }
-  if (!val('resumeName') || val('resumeName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (val('resumeName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (!isPaid('resumePaid')) return;
 
   const msg =
-`Hi Tanay! I have completed payment for *${service}*.
+`Hi Tanay! I have booked *${service}* and completed the payment.
 
 Here are my details:
 
@@ -43,7 +53,7 @@ Here are my details:
 🛠️ *Projects/Experience:* ${val('resumeProjects')}
 🔍 *Focus Areas:* ${val('resumeFocus')}
 
-_(Attaching resume PDF shortly)_`;
+_(Attaching payment screenshot & resume PDF shortly)_`;
 
   openWhatsApp(msg);
 }
@@ -52,10 +62,11 @@ _(Attaching resume PDF shortly)_`;
 function submitLinkedin() {
   const service = getRadioValue('linkedinService');
   if (service === 'Not selected') { alert('Please select a service.'); return; }
-  if (!val('linkedinName') || val('linkedinName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (val('linkedinName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (!isPaid('linkedinPaid')) return;
 
   const msg =
-`Hi Tanay! I have completed payment for *${service}*.
+`Hi Tanay! I have booked *${service}* and completed the payment.
 
 Here are my details:
 
@@ -65,7 +76,9 @@ Here are my details:
 📝 *Current Headline:* ${val('linkedinHeadline')}
 🎯 *Target Role:* ${val('linkedinRole')}
 ⚠️ *What's missing/weak:* ${val('linkedinWeak')}
-🔍 *Focus Areas:* ${val('linkedinFocus')}`;
+🔍 *Focus Areas:* ${val('linkedinFocus')}
+
+_(Attaching payment screenshot shortly)_`;
 
   openWhatsApp(msg);
 }
@@ -74,10 +87,11 @@ Here are my details:
 function submitMock() {
   const type = getRadioValue('mockType');
   if (type === 'Not selected') { alert('Please select an interview type.'); return; }
-  if (!val('mockName') || val('mockName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (val('mockName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (!isPaid('mockPaid')) return;
 
   const msg =
-`Hi Tanay! I have completed payment for *Mock Interview — ${type}*.
+`Hi Tanay! I have booked *${type}* and completed the payment.
 
 Here are my details:
 
@@ -89,7 +103,7 @@ Here are my details:
 🎯 *Focus on:* ${val('mockFocus')}
 📝 *Additional Notes:* ${val('mockNotes')}
 
-_(Attaching resume PDF shortly)_`;
+_(Attaching payment screenshot & resume PDF shortly)_`;
 
   openWhatsApp(msg);
 }
@@ -98,10 +112,11 @@ _(Attaching resume PDF shortly)_`;
 function submitGuidance() {
   const service = getRadioValue('guidanceService');
   if (service === 'Not selected') { alert('Please select a service.'); return; }
-  if (!val('guidanceName') || val('guidanceName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (val('guidanceName') === 'Not provided') { alert('Please enter your name.'); return; }
+  if (!isPaid('guidancePaid')) return;
 
   const msg =
-`Hi Tanay! I have completed payment for *${service}*.
+`Hi Tanay! I have booked *${service}* and completed the payment.
 
 Here are my details:
 
@@ -111,7 +126,9 @@ Here are my details:
 🎯 *Target Job Type:* ${val('guidanceTarget')}
 ⚙️ *Skills Known:* ${val('guidanceSkills')}
 ⚠️ *Biggest Challenge:* ${val('guidanceChallenge')}
-💡 *Expected Outcome:* ${val('guidanceExpect')}`;
+💡 *Expected Outcome:* ${val('guidanceExpect')}
+
+_(Attaching payment screenshot shortly)_`;
 
   openWhatsApp(msg);
 }
