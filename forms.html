@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrepWithTanay — Session Forms</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link rel="stylesheet" href="forms.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-brand">PrepWith<span>Tanay</span></a>
+    <a href="index.html#services" class="nav-cta">Back to Services</a>
+  </nav>
+
+  <div class="forms-page">
+
+    <!-- TABS -->
+    <div class="tabs-header">
+      <h1>Pre-Session Forms</h1>
+      <p>Fill this out after payment — helps me prepare a tailored session for you</p>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('resume')">
+          <span class="material-icons-round">description</span> Resume
+        </button>
+        <button class="tab" onclick="showTab('linkedin')">
+          <span class="material-icons-round">manage_accounts</span> LinkedIn
+        </button>
+        <button class="tab" onclick="showTab('mock')">
+          <span class="material-icons-round">code</span> Mock Interview
+        </button>
+        <button class="tab" onclick="showTab('guidance')">
+          <span class="material-icons-round">support_agent</span> Career Guidance
+        </button>
+      </div>
+    </div>
+
+    <!-- FORM: RESUME -->
+    <div class="form-panel active" id="tab-resume">
+      <div class="form-card">
+        <div class="form-title">
+          <span class="material-icons-round">description</span>
+          <div>
+            <h2>Resume Form</h2>
+            <p>For Resume Review (₹99) & Resume Creation (₹299)</p>
+          </div>
+        </div>
+        <form id="resumeForm">
+          <div class="form-group">
+            <label>Service *</label>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="resumeService" value="Resume Review (₹99)" required /> Resume Review (₹99)</label>
+              <label class="radio-opt"><input type="radio" name="resumeService" value="Resume Creation (₹299)" /> Resume Creation (₹299)</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="resumeName" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Background *</label>
+              <select id="resumeBackground" required>
+                <option value="">Select</option>
+                <option>CDAC</option>
+                <option>B.E. / B.Tech</option>
+                <option>Self-taught</option>
+                <option>Bootcamp</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Experience Level *</label>
+              <select id="resumeExp" required>
+                <option value="">Select</option>
+                <option>Fresher (0 exp)</option>
+                <option>Less than 1 year</option>
+                <option>1–2 years</option>
+                <option>2+ years</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Target Job Type *</label>
+              <select id="resumeTarget" required>
+                <option value="">Select</option>
+                <option>Product Company</option>
+                <option>Service Company</option>
+                <option>Startup</option>
+                <option>Any</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tech Stack *</label>
+            <input type="text" id="resumeStack" placeholder="e.g. Java, Spring Boot, ReactJS, SQL" required />
+          </div>
+          <div class="form-group">
+            <label>Target Job Role *</label>
+            <input type="text" id="resumeRole" placeholder="e.g. Java Backend Developer" required />
+          </div>
+          <div class="form-group">
+            <label>Projects / Experience (brief)</label>
+            <textarea id="resumeProjects" rows="3" placeholder="Briefly describe your projects or work experience..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Anything specific to focus on?</label>
+            <textarea id="resumeFocus" rows="2" placeholder="e.g. Make it ATS friendly, highlight projects better..."></textarea>
+          </div>
+          <div class="form-note">
+            <span class="material-icons-round">info</span>
+            After submitting, please attach your resume PDF on WhatsApp.
+          </div>
+          <button type="button" class="btn-submit" onclick="submitResume()">
+            <span class="material-icons-round">send</span> Submit & Open WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FORM: LINKEDIN -->
+    <div class="form-panel" id="tab-linkedin">
+      <div class="form-card">
+        <div class="form-title">
+          <span class="material-icons-round">manage_accounts</span>
+          <div>
+            <h2>LinkedIn Form</h2>
+            <p>For LinkedIn Review (₹99) & Resume + LinkedIn Combo (₹149)</p>
+          </div>
+        </div>
+        <form id="linkedinForm">
+          <div class="form-group">
+            <label>Service *</label>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="linkedinService" value="LinkedIn Review (₹99)" required /> LinkedIn Review (₹99)</label>
+              <label class="radio-opt"><input type="radio" name="linkedinService" value="Resume + LinkedIn Combo (₹149)" /> Resume + LinkedIn Combo (₹149)</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="linkedinName" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Experience Level *</label>
+              <select id="linkedinExp" required>
+                <option value="">Select</option>
+                <option>Fresher (0 exp)</option>
+                <option>Less than 1 year</option>
+                <option>1–2 years</option>
+                <option>2+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>LinkedIn Profile URL *</label>
+            <input type="url" id="linkedinUrl" placeholder="https://linkedin.com/in/your-profile" required />
+          </div>
+          <div class="form-group">
+            <label>Current Headline on LinkedIn *</label>
+            <input type="text" id="linkedinHeadline" placeholder="e.g. Java Developer | CDAC Pune" required />
+          </div>
+          <div class="form-group">
+            <label>Target Job Role *</label>
+            <input type="text" id="linkedinRole" placeholder="e.g. Backend Developer at Product Company" required />
+          </div>
+          <div class="form-group">
+            <label>What do you feel is missing or weak on your profile?</label>
+            <textarea id="linkedinWeak" rows="2" placeholder="e.g. About section is blank, no recommendations..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Anything specific to improve?</label>
+            <textarea id="linkedinFocus" rows="2" placeholder="e.g. Want more recruiter visibility, better project descriptions..."></textarea>
+          </div>
+          <button type="button" class="btn-submit" onclick="submitLinkedin()">
+            <span class="material-icons-round">send</span> Submit & Open WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FORM: MOCK INTERVIEW -->
+    <div class="form-panel" id="tab-mock">
+      <div class="form-card">
+        <div class="form-title">
+          <span class="material-icons-round">code</span>
+          <div>
+            <h2>Mock Interview Form</h2>
+            <p>For Backend (₹299) · Frontend (₹299) · Full Stack (₹399) · System Design (₹349)</p>
+          </div>
+        </div>
+        <form id="mockForm">
+          <div class="form-group">
+            <label>Interview Type *</label>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="mockType" value="Backend — Java & Spring Boot (₹299)" required /> Backend — Java & Spring Boot (₹299)</label>
+              <label class="radio-opt"><input type="radio" name="mockType" value="Frontend — ReactJS (₹299)" /> Frontend — ReactJS (₹299)</label>
+              <label class="radio-opt"><input type="radio" name="mockType" value="Full Stack — Java + ReactJS (₹399)" /> Full Stack — Java + ReactJS (₹399)</label>
+              <label class="radio-opt"><input type="radio" name="mockType" value="System Design (₹349)" /> System Design (₹349)</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="mockName" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Experience Level *</label>
+              <select id="mockExp" required>
+                <option value="">Select</option>
+                <option>Fresher (0 exp)</option>
+                <option>Less than 1 year</option>
+                <option>1–2 years</option>
+                <option>2+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Target Company Type *</label>
+              <select id="mockCompany" required>
+                <option value="">Select</option>
+                <option>Product Company</option>
+                <option>Service Company</option>
+                <option>Startup</option>
+                <option>Any</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Previous Interview Experience</label>
+              <select id="mockPrevious">
+                <option value="">Select</option>
+                <option>No interviews yet</option>
+                <option>Applied but no calls</option>
+                <option>Got calls, failed rounds</option>
+                <option>Cleared some rounds</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Topics you are comfortable with *</label>
+            <input type="text" id="mockComfort" placeholder="e.g. Java OOP, Spring Boot basics, REST APIs" required />
+          </div>
+          <div class="form-group">
+            <label>Topics you want to focus on *</label>
+            <input type="text" id="mockFocus" placeholder="e.g. Microservices, JPA, System Design basics" required />
+          </div>
+          <div class="form-group">
+            <label>Anything else I should know?</label>
+            <textarea id="mockNotes" rows="2" placeholder="e.g. I panic during coding questions, need help with communication..."></textarea>
+          </div>
+          <div class="form-note">
+            <span class="material-icons-round">info</span>
+            After submitting, please attach your resume PDF on WhatsApp.
+          </div>
+          <button type="button" class="btn-submit" onclick="submitMock()">
+            <span class="material-icons-round">send</span> Submit & Open WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FORM: CAREER GUIDANCE -->
+    <div class="form-panel" id="tab-guidance">
+      <div class="form-card">
+        <div class="form-title">
+          <span class="material-icons-round">support_agent</span>
+          <div>
+            <h2>Career Guidance Form</h2>
+            <p>For Career Guidance Call (₹149) & Full Prep Pack (₹499)</p>
+          </div>
+        </div>
+        <form id="guidanceForm">
+          <div class="form-group">
+            <label>Service *</label>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="guidanceService" value="Career Guidance Call (₹149)" required /> Career Guidance Call (₹149)</label>
+              <label class="radio-opt"><input type="radio" name="guidanceService" value="Full Prep Pack (₹499)" /> Full Prep Pack (₹499)</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="guidanceName" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Background *</label>
+              <select id="guidanceBackground" required>
+                <option value="">Select</option>
+                <option>CDAC</option>
+                <option>B.E. / B.Tech</option>
+                <option>Self-taught</option>
+                <option>Bootcamp</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Job Search Status *</label>
+              <select id="guidanceStatus" required>
+                <option value="">Select</option>
+                <option>Just started learning</option>
+                <option>Learning & preparing</option>
+                <option>Actively applying</option>
+                <option>Got offers, need to decide</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Target Job Type</label>
+              <select id="guidanceTarget">
+                <option value="">Select</option>
+                <option>Product Company</option>
+                <option>Service Company</option>
+                <option>Startup</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Skills you know so far *</label>
+            <input type="text" id="guidanceSkills" placeholder="e.g. Java basics, HTML/CSS, Spring Boot" required />
+          </div>
+          <div class="form-group">
+            <label>Biggest challenge right now *</label>
+            <textarea id="guidanceChallenge" rows="2" placeholder="e.g. Don't know what to learn next, not getting interview calls..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label>What do you expect from this session? *</label>
+            <textarea id="guidanceExpect" rows="2" placeholder="e.g. Clear roadmap, know which companies to target..." required></textarea>
+          </div>
+          <button type="button" class="btn-submit" onclick="submitGuidance()">
+            <span class="material-icons-round">send</span> Submit & Open WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="forms.js"></script>
+</body>
+</html>
