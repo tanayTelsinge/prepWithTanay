@@ -222,12 +222,17 @@ nav {
 }
 
 .cred-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
   padding: 0.4rem 1.5rem;
   white-space: nowrap;
 }
+
+.cred-item .material-icons-round { font-size: 1rem !important; color: var(--primary-light); }
 
 .cred-item a {
   color: var(--primary-light);
@@ -265,18 +270,18 @@ nav {
 }
 
 .step-num {
-  width: 28px; height: 28px;
+  width: 32px; height: 32px;
   background: rgba(124, 58, 237, 0.2);
   border: 1px solid rgba(124, 58, 237, 0.4);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 800;
   color: var(--primary-light);
   flex-shrink: 0;
 }
+
+.step-num .material-icons-round { font-size: 1rem !important; }
 
 .step h3 {
   font-size: 0.82rem;
@@ -377,6 +382,15 @@ nav {
 
 .popular-badge { background: var(--primary); color: white; }
 .featured-badge { background: var(--accent); color: white; }
+
+.svc-icon {
+  font-size: 1.4rem !important;
+  color: var(--primary-light);
+  margin-bottom: 0.65rem;
+  display: block;
+}
+
+.service-card.featured .svc-icon { color: var(--accent); }
 
 .service-card h3 {
   font-size: 0.95rem;
