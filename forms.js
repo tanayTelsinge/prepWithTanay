@@ -88,10 +88,12 @@ function submitMock() {
   const type = getRadioValue('mockType');
   if (type === 'Not selected') { alert('Please select an interview type.'); return; }
   if (val('mockName') === 'Not provided') { alert('Please enter your name.'); return; }
+  const booked = document.getElementById('mockBooked');
+  if (!booked || !booked.checked) { alert('Please confirm you have booked your slot on Calendly.'); return; }
   if (!isPaid('mockPaid')) return;
 
   const msg =
-`Hi Tanay! I have booked *${type}* and completed the payment.
+`Hi Tanay! I have booked *${type}*, confirmed my Calendly slot and completed the payment.
 
 Here are my details:
 
@@ -113,10 +115,12 @@ function submitGuidance() {
   const service = getRadioValue('guidanceService');
   if (service === 'Not selected') { alert('Please select a service.'); return; }
   if (val('guidanceName') === 'Not provided') { alert('Please enter your name.'); return; }
+  const booked = document.getElementById('guidanceBooked');
+  if (!booked || !booked.checked) { alert('Please confirm you have booked your slot on Calendly.'); return; }
   if (!isPaid('guidancePaid')) return;
 
   const msg =
-`Hi Tanay! I have booked *${service}* and completed the payment.
+`Hi Tanay! I have booked *${service}*, confirmed my Calendly slot and completed the payment.
 
 Here are my details:
 
